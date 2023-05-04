@@ -1,0 +1,16 @@
+{
+    "name": "gokhancelebi/pure-listing",
+    "description": "List products with images and let user to navigate in website",
+    "autoload": {
+        "psr-4": {
+            "Gokhancelebi\\PureListing\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gokhan",
+            "email": "dinatopya03@gmail.com"
+        }
+    ],
+    "require": {}
+}
