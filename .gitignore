@@ -2,4 +2,5 @@
 /sass/
 /node_modules/
 /vendor/
+.idea/
 config.php
