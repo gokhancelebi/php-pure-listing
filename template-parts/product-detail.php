@@ -8,8 +8,8 @@ head();
             <div class="row">
                 <div class="col-lg-12">
                     <div class="product__details__breadcrumb">
-                        <a href="./Anasayfa.html">Home</a>
-                        <a href="./shop.html">Shop</a>
+                        <a href="<?=home_url()?>">Home</a>
+                        <a href="<?=home_url()?>/products.php">Ürünler</a>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,29 @@ head();
                     <div class="tab-content">
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="product__details__pic__item">
-                                <img src="<?=get_thumbnail_url($product['id'])?>" style="max-width: 800px; max-height: 500px" alt="">
+                                <!-- Slider main container -->
+                                <div class="swiper product-detail-big-slider">
+                                    <!-- Additional required wrapper -->
+                                    <div class="swiper-wrapper">
+                                        <!-- Slides -->
+                                        <?php
+                                        if ($images) {
+                                            foreach ($images as $image) {
+                                                ?>
+                                                <div class="swiper-slide"><img src="<?php echo $image['image'] ?>"></div>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
+                                    </div>
+                                    <!-- If we need pagination -->
+                                    <div class="swiper-pagination"></div>
+
+                                    <!-- If we need navigation buttons -->
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+
+                                </div>
                             </div>
                         </div>
                     </div>

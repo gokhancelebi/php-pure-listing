@@ -7,11 +7,13 @@
     <meta name="keywords" content="Male_Fashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Anje Sofa/Ana Sayfa</title>
+    <title><?=isset($title) ? $title : 'Ana Sayfa'?></title>
 
 
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
           rel="stylesheet">
+
+    <link rel="stylesheet" href="<?=home_url()?>/assets/swiper/swiper-bundle.min.css">
 
     <base href="<?=home_url()?>">
     <!-- Css Styles -->
@@ -24,6 +26,11 @@
     <link rel="stylesheet" href="<?=home_url()?>/assets/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="<?=home_url()?>/assets/css/style.css" type="text/css">
     <link rel="stylesheet" href="<?=home_url()?>/assets/css/whatsapp.css" type="text/css">
+
+    <!-- swiper js -->
+    <script src="<?=home_url()?>/assets/swiper/swiper-bundle.min.js"></script>
+
+
 </head>
 
 <body>
@@ -51,7 +58,6 @@
             <nav class="header__menu mobile-menu">
                 <ul>
                     <li><a href="<?=home_url()?>">Ana Sayfa</a></li>
-                    <li class="active"><a href="">Mağaza</a></li>
                     <li><a href="<?=home_url('products.php')?>">Ürünler</a>
                         <ul class="dropdown">
                             <?php
@@ -64,8 +70,8 @@
                             ?>
                         </ul>
                     </li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">İletişim</a></li>
+                    <li><a href="<?=home_url('blogs.php')?>">Blog</a></li>
+                    <li><a href="<?=home_url('contact.php')?>">İletişim</a></li>
                 </ul>
             </nav>
         </div>

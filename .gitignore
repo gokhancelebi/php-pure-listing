@@ -2,6 +2,7 @@
 /sass/
 /node_modules/
 /vendor/
-.idea/
-/design
+/.idea
+/design/
+/istekler/
 config.php

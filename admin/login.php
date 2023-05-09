@@ -14,10 +14,12 @@ if (isset($_POST['login'])){
             exit;
         }
         header('Location: '.HOME_URL.'/admin');
+        exit;
     }else{
         $errors[] = "Email or password is incorrect";
     }
 }
+
 
 template_part('admin/login',[
     'errors' => $errors
