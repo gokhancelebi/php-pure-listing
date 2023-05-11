@@ -81,13 +81,12 @@
             </div>
         </div>
         <div class="row product__filter">
-            <?php foreach (get_products() as $get_product) {
+            <?php foreach (get_home_products() as $get_product) {
                 ?>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg"
+                        <div class="product__item__pic set-bg open-lightbox"
                              data-setbg="<?= get_thumbnail_url($get_product['id']) ?>">
-                            <span class="label">New</span>
                         </div>
                         <div class="product__item__text">
                             <h6><?php echo $get_product['title']; ?></h6>

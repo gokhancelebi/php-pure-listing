@@ -8,21 +8,24 @@ head();
             <div class="row">
                 <div class="col-lg-12">
                     <div class="product__details__breadcrumb">
-                        <a href="<?=home_url()?>">Home</a>
-                        <a href="<?=home_url()?>/products.php">Ürünler</a>
+                        <a href="<?= home_url() ?>">Home</a>
+                        <a href="<?= home_url() ?>/products.php">Ürünler</a>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-3">
-                    <ul class="nav nav-tabs" role="tablist" style="max-height: 750px;overflow-y: scroll; width: max-content; display: flex;flex-direction: column">
+                    <ul class="nav nav-tabs" role="tablist"
+                        style="max-height: 750px;overflow-y: scroll; width: max-content; display: flex;flex-direction: column">
                         <?php
                         if ($images) {
+                            $index = 1;
                             foreach ($images as $image) {
                                 ?>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">
-                                        <div class="product__thumb__pic set-bg"
+                                    <a class="nav-link" >
+                                        <div class="product__thumb__pic    set-bg set_gallery_image"
+                                             data-index = "<?php echo $index; $index++ ?>"
                                              data-setbg="<?php echo $image['image'] ?>">
                                         </div>
                                     </a>
@@ -46,7 +49,8 @@ head();
                                         if ($images) {
                                             foreach ($images as $image) {
                                                 ?>
-                                                <div class="swiper-slide"><img src="<?php echo $image['image'] ?>"></div>
+                                                <div class="swiper-slide"><img class="open-lightbox" src="<?php echo $image['image'] ?>">
+                                                </div>
                                                 <?php
                                             }
                                         }
@@ -212,7 +216,6 @@ head();
                     <?php
                 }
             }
-
             ?>
         </div>
     </div>

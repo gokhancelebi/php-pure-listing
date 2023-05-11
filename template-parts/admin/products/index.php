@@ -15,6 +15,9 @@
                     <div style="width: max-content">
                         <a class="btn-primary" href="<?=home_url('admin/products/edit.php?id='.$product['id'])?>">Düzenle</a>
                         <a class="btn-primary" href="<?=home_url('admin/products/delete.php?id='.$product['id'])?>">Sil</a>
+                        Anasayfada : <input type="checkbox" class="anasayfada-goster" value="<?=$product['id']?>" <?php
+                        if ($product['show_home'] == 'yes') echo 'checked'?> <?php
+                        ?>>
                     </div>
                 </div>
             <?php endforeach;?>

@@ -15,7 +15,30 @@
     <link rel="stylesheet" href="<?=home_url('assets/css/bundle.css?time='.time())?>">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('.anasayfada-goster').click(function () {
 
+                var id = $(this).val();
+                var checked = $(this).prop('checked');
+                if (checked){
+                    checked = 'yes';
+                }
+                $.ajax({
+                    url: '<?=home_url('admin/products/anasayfada-goster.php')?>',
+                    type: 'post',
+                    data: {id: id, checked: checked},
+                    success: function (data) {
+                        if (data == 'success') {
+                            alert('İşlem Başarılı');
+                        } else {
+                            alert('İşlem Başarısız');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
 <div class="admin">

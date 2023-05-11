@@ -108,10 +108,6 @@
             prevEl: '.swiper-button-prev',
         },
 
-        // And if we need scrollbar
-        scrollbar: {
-            el: '.swiper-scrollbar',
-        },
     });
 
     const swiper_product_detail_big = new Swiper('.product-detail-big-slider', {
@@ -128,13 +124,14 @@
             prevEl: '.swiper-button-prev',
         },
 
-        // And if we need scrollbar
-        scrollbar: {
-            el: '.swiper-scrollbar',
-        },
+
     });
 
     $(function () {
+
+        $('.product__thumb__pic').click(function (){
+            swiper_product_detail_big.slideTo($(this).data('index'));
+        });
         $('.submit-button').click(function () {
             $.ajax({
                 url: '<?=home_url('contact-send.php')?>',
@@ -149,16 +146,82 @@
                 }
             });
         });
+
+        $('.open-lightbox').click(function (e){
+            e.preventDefault();
+
+            $('.lightbox-container').css('display', 'flex');
+            if ($(this).data('setbg')){
+                $('.lightbox-image').attr('src', $(this).data('setbg'));
+            }else {
+                $('.lightbox-image').attr('src', $(this).attr('src'));
+            }
+        });
+        $('.close-button').click(function (){
+            $('.lightbox-container').css('display', 'none');
+        });
     });
+
 
 </script>
 
+<div class="lightbox-container">
+    <div class="lightbox-content">
+        <img src="" alt="" class="lightbox-image">
+        <button class="close-button">X</button>
+    </div>
+</div>
 <style>
+    .open-lightbox{
+        cursor: pointer;
+    }
+    .lightbox-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 111111;
+    }
+    .lightbox-content{
+        width: 80%;
+        height: 80%;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .lightbox-image{
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .lightbox-container .close-button{
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+    }
     .home_slider .swiper-slide {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
+    }
+    .product-detail-big-slider .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    .set_gallery_image{
+        cursor: pointer;
     }
 </style>
 

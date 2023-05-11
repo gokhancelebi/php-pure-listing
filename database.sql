@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 09, 2023 at 01:16 PM
+-- Generation Time: May 11, 2023 at 08:07 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -95,7 +95,9 @@ INSERT INTO `images` (`id`, `name`, `is_thumbnail`, `product_id`) VALUES
 (25, '1683105850.jpg', 'No', 24),
 (119, '1683110440.jpg', 'No', 56),
 (120, '1683110444.jpg', 'No', 56),
-(121, '1683110447.jpg', 'No', 56);
+(121, '1683110447.jpg', 'No', 56),
+(123, '1683833098.png', 'No', 57),
+(124, '1683833101.jpg', 'No', 57);
 
 -- --------------------------------------------------------
 
@@ -107,16 +109,16 @@ CREATE TABLE `products` (
   `id` int NOT NULL,
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `category_id` int NOT NULL
+  `category_id` int NOT NULL,
+  `show_home` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `title`, `description`, `category_id`) VALUES
-(56, 'Test', 'test', 7),
-(57, 'wdad', 'awdaw', 7);
+INSERT INTO `products` (`id`, `title`, `description`, `category_id`, `show_home`) VALUES
+(57, 'wdad', 'awdaw', 7, 'yes');
 
 -- --------------------------------------------------------
 
@@ -197,7 +199,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT for table `products`

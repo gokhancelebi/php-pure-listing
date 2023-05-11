@@ -40,6 +40,18 @@ function get_products($category_id = null, $page = 1, $limit = CONTENT_PER_PAGE)
     return false;
 }
 
+function get_home_products(){
+    $db = gc_db(); // PDO instance
+    $sql = "SELECT * FROM products WHERE show_home = 'yes' ORDER BY id DESC LIMIT 4";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    # check if product exists
+    if ($stmt->rowCount() > 0) {
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    return false;
+}
+
 function pagination_html($category_id = null, $page = 1)
 {
     $db = gc_db(); // PDO instance
